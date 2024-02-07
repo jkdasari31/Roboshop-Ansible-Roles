@@ -28,8 +28,11 @@
   ansible.builtin.copy:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
-  notify:
-  - Restart nginx
+
+- name: start and enable mongodb
+  ansible.builtin.service:
+    name: mongod
+    state: restarted
 
 # - name: copy roboshop configuration
 #   ansible.builtin.template:
