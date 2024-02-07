@@ -29,10 +29,11 @@
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
 
-- name: start and enable mongodb
+- name: start and enable nginx
   ansible.builtin.service:
-    name: mongod
+    name: nginx
     state: restarted
+    enabled: yes
 
 # - name: copy roboshop configuration
 #   ansible.builtin.template:
